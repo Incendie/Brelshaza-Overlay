@@ -1,35 +1,42 @@
-import React, { useState } from 'react';
+import React, { Dispatch } from 'react';
 import Timer from '../../_shared/components/Timer';
-import {
-  ENRAGE_TIMER,
-  METEOR_TIMER,
-  TILE_TIMER,
-} from '../../_shared/constants/timer';
+import { TIMER, TIMER_TYPE } from '../../_shared/constants/timer';
 import './styles.scss';
 
 interface IBody {
   fightStarted: boolean;
-  onStartReset: (e: React.MouseEvent) => void;
+  enrageTimer: number;
+  setEnrageTimer: Dispatch<number>;
 }
 
-const Body: React.FC<IBody> = ({ fightStarted }) => {
+const Body: React.FC<IBody> = ({
+  enrageTimer,
+  fightStarted,
+  setEnrageTimer,
+}) => {
   return (
     <main>
       <div className="timers-box">
         <Timer
-          variant="enrage"
+          enrageTimer={enrageTimer}
           fightStarted={fightStarted}
-          time={ENRAGE_TIMER}
+          setEnrageTimer={setEnrageTimer}
+          time={TIMER.ENRAGE}
+          variant={TIMER_TYPE.ENRAGE}
         />
         <Timer
+          enrageTimer={enrageTimer}
           fightStarted={fightStarted}
-          variant="blue-meteor"
-          time={METEOR_TIMER}
+          setEnrageTimer={setEnrageTimer}
+          time={TIMER.METEOR}
+          variant={TIMER_TYPE.METEOR}
         />
         <Timer
+          enrageTimer={enrageTimer}
           fightStarted={fightStarted}
-          variant="broken-tile"
-          time={TILE_TIMER}
+          setEnrageTimer={setEnrageTimer}
+          time={TIMER.TILE}
+          variant={TIMER_TYPE.TILE}
         />
       </div>
     </main>

@@ -1,3 +1,6 @@
-export const ENRAGE_TIMER = 20 * 60; // 20 minutes in s
-export const METEOR_TIMER = 60; // 60 seconds in s
-export const TILE_TIMER = 100; // 1min 40s in s
+export const TIMER = { ENRAGE: 20 * 60, METEOR: 60, TILE: 100 };
+export const TIMER_TYPE = {
+  ENRAGE: 'enrage',
+  METEOR: 'blue-meteor',
+  TILE: 'broken-tile',
+}; // 20 minutes in s

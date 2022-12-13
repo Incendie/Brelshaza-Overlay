@@ -4,13 +4,19 @@ import './styles.scss';
 
 interface IButton {
   className: string;
+  disabled: boolean;
   label: string;
   onClick: (e: React.MouseEvent) => void;
 }
 
-const Button: React.FC<IButton> = ({ className, label, onClick }) => {
+const Button: React.FC<IButton> = ({ className, disabled, label, onClick }) => {
   return (
-    <button className={className} type="button" onClick={onClick}>
+    <button
+      className={className}
+      disabled={disabled}
+      type="button"
+      onClick={onClick}
+    >
       {label}
     </button>
   );

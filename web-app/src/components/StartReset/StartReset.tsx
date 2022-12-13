@@ -10,6 +10,7 @@ const StartReset: React.FC<IStartReset> = ({ onClick, fightStarted }) => {
   return (
     <Button
       className={`${fightStarted ? 'reset' : 'start'}-button`}
+      disabled={false}
       label={fightStarted ? 'Reset' : 'Start'}
       onClick={onClick}
     />

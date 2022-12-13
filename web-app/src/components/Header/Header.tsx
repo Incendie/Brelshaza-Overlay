@@ -1,4 +1,3 @@
-import Controls from '../Controls';
 import StartReset from '../StartReset';
 import './styles.scss';
 

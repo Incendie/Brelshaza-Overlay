@@ -9,9 +9,16 @@ button {
   height: 72px;
   width: 240px;
 
-  &:hover {
-    border-color: var(--black);
-    color: var(--black);
-    transition: 0.2s all ease-in-out;
+  &:not([disabled]) {
+    &:hover {
+      border-color: var(--black);
+      color: var(--black);
+      transition: 0.2s all ease-in-out;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

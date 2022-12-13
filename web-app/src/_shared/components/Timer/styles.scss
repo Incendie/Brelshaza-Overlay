@@ -1,0 +1,44 @@
+.enrage-timer-container {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.blue-meteor-timer-container {
+  button {
+    background: var(--blue);
+  }
+}
+
+.broken-tile-timer-container {
+  button {
+    background: var(--yellow);
+  }
+}
+
+.timer-timeLeft-container,
+.timer-left,
+.enrage-timer-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.timer-timeLeft-container {
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.2;
+  }
+}
+
+button.copy {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  width: 48px;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+}

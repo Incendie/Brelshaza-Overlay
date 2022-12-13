@@ -51,7 +51,7 @@ const Body: React.FC<IBody> = ({
           time={TIMER.TILE}
           variant={TIMER_TYPE.TILE}
         />
-        <p>
+        <p className="both-button-caption">
           Click this button if the meteor dropped and tile broke at the same
           time
         </p>

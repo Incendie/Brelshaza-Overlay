@@ -3,10 +3,10 @@ main {
   margin: 36px auto;
 }
 
-p {
-  margin: 36px 0 12px 0;
-}
-
 .both-button {
   background: var(--grey);
+
+  &-caption {
+    margin: 36px 0 12px 0;
+  }
 }

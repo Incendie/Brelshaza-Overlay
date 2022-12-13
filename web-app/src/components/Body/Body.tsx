@@ -1,4 +1,5 @@
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useState } from 'react';
+import Button from '../../_shared/components/Button';
 import Timer from '../../_shared/components/Timer';
 import { TIMER, TIMER_TYPE } from '../../_shared/constants/timer';
 import './styles.scss';
@@ -14,6 +15,14 @@ const Body: React.FC<IBody> = ({
   fightStarted,
   setEnrageTimer,
 }) => {
+  const [forceStart, setForceStart] = useState(false);
+
+  const onBothClick = (e: React.MouseEvent) => {
+    // When the both button is clicked, forces timer to start
+    e.preventDefault();
+    setForceStart(true);
+  };
+
   return (
     <main>
       <div className="timers-box">
@@ -27,16 +36,30 @@ const Body: React.FC<IBody> = ({
         <Timer
           enrageTimer={enrageTimer}
           fightStarted={fightStarted}
+          forceStart={forceStart}
           setEnrageTimer={setEnrageTimer}
+          setForceStart={setForceStart}
           time={TIMER.METEOR}
           variant={TIMER_TYPE.METEOR}
         />
         <Timer
           enrageTimer={enrageTimer}
           fightStarted={fightStarted}
+          forceStart={forceStart}
           setEnrageTimer={setEnrageTimer}
+          setForceStart={setForceStart}
           time={TIMER.TILE}
           variant={TIMER_TYPE.TILE}
+        />
+        <p>
+          Click this button if the meteor dropped and tile broke at the same
+          time
+        </p>
+        <Button
+          className="both-button"
+          label="Both"
+          onClick={onBothClick}
+          disabled={!fightStarted}
         />
       </div>
     </main>

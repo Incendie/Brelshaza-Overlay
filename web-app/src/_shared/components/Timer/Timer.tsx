@@ -6,19 +6,23 @@ import './styles.scss';
 
 interface ITimer {
   fightStarted: boolean;
+  forceStart?: boolean;
   time: number;
   variant: string;
   enrageTimer: number;
   setEnrageTimer: Dispatch<number>;
+  setForceStart?: Dispatch<boolean>;
 }
 
 // Timer component - has reset button, countdown text, copy to clipboard
 const Timer: React.FC<ITimer> = ({
+  enrageTimer,
   fightStarted,
+  forceStart,
+  setEnrageTimer,
+  setForceStart,
   time,
   variant,
-  enrageTimer,
-  setEnrageTimer,
 }) => {
   const [timeLeft, setTimeLeft] = useState(time);
   const [start, setStart] = useState(
@@ -55,6 +59,7 @@ const Timer: React.FC<ITimer> = ({
   const onTimerClick = (e: React.MouseEvent) => {
     // If the button next to the timer is clicked
     setShowEnrageTimeLeft(true);
+    if (setForceStart) setForceStart(false);
 
     // Reset the time
     if (fightStarted) setTimeLeft(time);
@@ -75,6 +80,15 @@ const Timer: React.FC<ITimer> = ({
   };
 
   useEffect(() => {
+    // When the both button is clicked, forces timer to start
+    if (forceStart) {
+      setTimeLeft(time);
+      setStart(true);
+      if (setForceStart) setForceStart(false);
+    }
+  }, [forceStart, setForceStart, time]);
+
+  useEffect(() => {
     // Effect to count the enrage timer down
     if (variant === TIMER_TYPE.ENRAGE && setEnrageTimer)
       setEnrageTimer(timeLeft);
@@ -88,10 +102,11 @@ const Timer: React.FC<ITimer> = ({
   useEffect(() => {
     // If fight was reset then reset the timer and hide enrage timer
     if (!fightStarted) {
+      if (setForceStart) setForceStart(false);
       setShowEnrageTimeLeft(false);
       setTimeLeft(time);
     }
-  }, [fightStarted, time]);
+  }, [fightStarted, setForceStart, time]);
 
   useEffect(() => {
     // Main countdown logic

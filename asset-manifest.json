@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Brelshaza-Overlay/static/css/main.d20ad3b9.css",
+    "main.css": "/Brelshaza-Overlay/static/css/main.b8a1d61a.css",
     "main.js": "/Brelshaza-Overlay/static/js/main.aa8b4edf.js",
     "static/js/787.8a7a9489.chunk.js": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js",
     "index.html": "/Brelshaza-Overlay/index.html",
-    "main.d20ad3b9.css.map": "/Brelshaza-Overlay/static/css/main.d20ad3b9.css.map",
+    "main.b8a1d61a.css.map": "/Brelshaza-Overlay/static/css/main.b8a1d61a.css.map",
     "main.aa8b4edf.js.map": "/Brelshaza-Overlay/static/js/main.aa8b4edf.js.map",
     "787.8a7a9489.chunk.js.map": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d20ad3b9.css",
+    "static/css/main.b8a1d61a.css",
     "static/js/main.aa8b4edf.js"
   ]
 }

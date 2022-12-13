@@ -3,4 +3,4 @@ export const TIMER_TYPE = {
   ENRAGE: 'enrage',
   METEOR: 'blue-meteor',
   TILE: 'broken-tile',
-}; // 20 minutes in s
+};

@@ -12,6 +12,7 @@ interface ITimer {
   setEnrageTimer: Dispatch<number>;
 }
 
+// Timer component - has reset button, countdown text, copy to clipboard
 const Timer: React.FC<ITimer> = ({
   fightStarted,
   time,
@@ -27,6 +28,8 @@ const Timer: React.FC<ITimer> = ({
 
   const formatTimeLeft = useCallback(
     (timeRemaining: number) => {
+      // Format time to mm:ss
+
       if (enrageTimer >= time || variant === TIMER_TYPE.ENRAGE) {
         const minutes = Math.max(Math.floor(timeRemaining / 60), 0);
         const seconds = Math.max(Math.floor(timeRemaining % 60), 0);
@@ -44,6 +47,7 @@ const Timer: React.FC<ITimer> = ({
   );
 
   const formatEnrageTimeLeft = useCallback(() => {
+    // Format to mm:ss left on the enrage timer
     if (enrageTimer && variant !== TIMER_TYPE.ENRAGE)
       return formatTimeLeft(enrageTimer - time);
   }, [enrageTimer, formatTimeLeft, time, variant]);
@@ -51,6 +55,7 @@ const Timer: React.FC<ITimer> = ({
   const onTimerClick = (e: React.MouseEvent) => {
     // If the button next to the timer is clicked
     setShowEnrageTimeLeft(true);
+
     // Reset the time
     if (fightStarted) setTimeLeft(time);
 
@@ -59,6 +64,7 @@ const Timer: React.FC<ITimer> = ({
   };
 
   const formatName = () => {
+    // Capitalize each word
     const nameArr = variant.split('-');
     const newNameArr = nameArr.map(
       word => word[0].toUpperCase() + word.substring(1)
@@ -69,6 +75,7 @@ const Timer: React.FC<ITimer> = ({
   };
 
   useEffect(() => {
+    // Effect to count the enrage timer down
     if (variant === TIMER_TYPE.ENRAGE && setEnrageTimer)
       setEnrageTimer(timeLeft);
   }, [setEnrageTimer, timeLeft, variant]);
@@ -79,6 +86,7 @@ const Timer: React.FC<ITimer> = ({
   }, [fightStarted, time, variant]);
 
   useEffect(() => {
+    // If fight was reset then reset the timer and hide enrage timer
     if (!fightStarted) {
       setShowEnrageTimeLeft(false);
       setTimeLeft(time);
@@ -132,6 +140,7 @@ const Timer: React.FC<ITimer> = ({
   };
 
   const onCopy = async (e: React.MouseEvent) => {
+    // Copy to clipboard
     e.preventDefault();
     if (fightStarted) {
       if (variant === TIMER_TYPE.ENRAGE) {
@@ -148,7 +157,10 @@ const Timer: React.FC<ITimer> = ({
     }
   };
 
+  // Disabled logic for the copy functionality
   const disabled = !(fightStarted && (variant === TIMER_TYPE.ENRAGE || start));
+
+  // Show the flashing warning at 3 seconds
   const showWarning = timeLeft < 3;
 
   const warningVerbiage = () => {

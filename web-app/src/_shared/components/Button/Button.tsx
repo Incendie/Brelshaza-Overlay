@@ -9,6 +9,7 @@ interface IButton {
   onClick: (e: React.MouseEvent) => void;
 }
 
+// Styled button component
 const Button: React.FC<IButton> = ({ className, disabled, label, onClick }) => {
   return (
     <button

@@ -6,6 +6,7 @@ interface IStartReset {
   fightStarted: boolean;
 }
 
+// Button the flips between Start and Reset
 const StartReset: React.FC<IStartReset> = ({ onClick, fightStarted }) => {
   return (
     <Button

@@ -15,6 +15,7 @@ function App() {
     // Reset button clicked
     if (fightStarted) setEnrageTimer(TIMER.ENRAGE);
 
+    // Flip the fight started flag when button is clicked
     setFightStarted(prev => !prev);
   };
 

@@ -29,6 +29,7 @@ const Timer: React.FC<ITimer> = ({
     variant === TIMER_TYPE.ENRAGE && fightStarted
   );
   const [showEnrageTimeLeft, setShowEnrageTimeLeft] = useState(false);
+  const [enrageTimeLeft, setEnrageTimeLeft] = useState('');
 
   const formatTimeLeft = useCallback(
     (timeRemaining: number) => {
@@ -53,12 +54,14 @@ const Timer: React.FC<ITimer> = ({
   const formatEnrageTimeLeft = useCallback(() => {
     // Format to mm:ss left on the enrage timer
     if (enrageTimer && variant !== TIMER_TYPE.ENRAGE)
-      return formatTimeLeft(enrageTimer - time);
-  }, [enrageTimer, formatTimeLeft, time, variant]);
+      return formatTimeLeft(enrageTimer - timeLeft);
+    return '';
+  }, [enrageTimer, formatTimeLeft, timeLeft, variant]);
 
   const onTimerClick = (e: React.MouseEvent) => {
     // If the button next to the timer is clicked
     setShowEnrageTimeLeft(true);
+    setEnrageTimeLeft(formatEnrageTimeLeft());
     if (setForceStart) setForceStart(false);
 
     // Reset the time
@@ -85,9 +88,10 @@ const Timer: React.FC<ITimer> = ({
       setTimeLeft(time);
       setStart(true);
       setShowEnrageTimeLeft(true);
+      setEnrageTimeLeft(formatEnrageTimeLeft());
       if (setForceStart) setForceStart(false);
     }
-  }, [enrageTimer, forceStart, setForceStart, time]);
+  }, [enrageTimer, forceStart, formatEnrageTimeLeft, setForceStart, time]);
 
   useEffect(() => {
     // Effect to count the enrage timer down
@@ -159,14 +163,21 @@ const Timer: React.FC<ITimer> = ({
     // Copy to clipboard
     e.preventDefault();
     if (fightStarted) {
-      if (variant === TIMER_TYPE.ENRAGE) {
-        await navigator.clipboard.writeText(
-          `${timeLeftVerbiage()} ${timeLeft} seconds`
-        );
-      } else if (start) {
-        await navigator.clipboard.writeText(
-          `${timeLeftVerbiage()} ${timeLeft} seconds ${enrageTimeLeftVerbiage()} ${formatEnrageTimeLeft()}`
-        );
+      switch (variant) {
+        case TIMER_TYPE.METEOR:
+          await navigator.clipboard.writeText(
+            `Next meteor at ${enrageTimeLeft}`
+          );
+          break;
+        case TIMER_TYPE.TILE:
+          await navigator.clipboard.writeText(
+            `${timeLeftVerbiage()} ${formatTimeLeft(
+              timeLeft
+            )} // Next Tile regenerates at ${enrageTimeLeft}`
+          );
+          break;
+        default:
+          break;
       }
     }
   };
@@ -203,12 +214,14 @@ const Timer: React.FC<ITimer> = ({
         {showEnrageTimeLeft && variant !== TIMER_TYPE.ENRAGE && (
           <p className="enrage-timer-left">
             <span>{enrageTimeLeftVerbiage()}</span>
-            <span>{formatEnrageTimeLeft()}</span>
+            <span>{enrageTimeLeft}</span>
           </p>
         )}
-        <button className="copy" type="button" disabled={disabled}>
-          <img src={image} alt="Copy icon" />
-        </button>
+        {variant !== TIMER_TYPE.ENRAGE && (
+          <button className="copy" type="button" disabled={disabled}>
+            <img src={image} alt="Copy icon" />
+          </button>
+        )}
       </div>
 
       <div className="button-container">

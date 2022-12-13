@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.blue-meteor-button {
+  background: #1705b5;
+  color: #f5f5f5;
+}
+
+.broken-tile-button {
+  background: goldenrod;
+}
+
+.both-button {
+  background: #f5f5f5;
+}

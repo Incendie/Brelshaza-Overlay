@@ -1,0 +1,12 @@
+button {
+  width: 240px;
+  height: 72px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+    transition: 0.2s all ease-in-out;
+  }
+}

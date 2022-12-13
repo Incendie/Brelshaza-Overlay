@@ -62,4 +62,4 @@ If you click the blue `Meteor` button, it will start/restart the 1 minute timer 
 If you click the golden `Broken Tile` button, it will start a 1:40 timer to tell you when the tile will regenerate. At 3 seconds before the tile regenerates, a message will show up informing you that the tile is about to come back. Click it again to restart the timer to countdown from 1 minute 40 seconds again.
 
 #### Both
-If you click the  `Both` button, it will start both the meteor and tile timers simultaneously. Click it again to restart both the timers to start counting down again.
+If you click the  `Both` button, it will start both the meteor and tile timers simultaneously. Click it again to restart both the timers to start counting down again. If there isn't enough time left for one of the timers, it will not start.

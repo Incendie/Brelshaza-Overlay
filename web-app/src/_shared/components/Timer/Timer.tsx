@@ -33,21 +33,21 @@ const Timer: React.FC<ITimer> = ({
   const formatTimeLeft = useCallback(
     (timeRemaining: number) => {
       // Format time to mm:ss
+      const minutes = Math.max(Math.floor(timeRemaining / 60), 0);
+      const seconds = Math.max(Math.floor(timeRemaining % 60), 0);
+      const minutesStr =
+        minutes < 10 ? `0${minutes.toString()}` : minutes.toString();
+      const secondsStr =
+        seconds < 10 ? `0${seconds.toString()}` : seconds.toString();
 
-      if (enrageTimer >= time || variant === TIMER_TYPE.ENRAGE) {
-        const minutes = Math.max(Math.floor(timeRemaining / 60), 0);
-        const seconds = Math.max(Math.floor(timeRemaining % 60), 0);
-        const minutesStr =
-          minutes < 10 ? `0${minutes.toString()}` : minutes.toString();
-        const secondsStr =
-          seconds < 10 ? `0${seconds.toString()}` : seconds.toString();
-
-        return `${minutesStr}:${secondsStr}`;
+      // Show not enough time if the enrage timer is less than the amount of time needed
+      if (enrageTimer < time && !start && variant !== TIMER_TYPE.ENRAGE) {
+        return 'Not enough time';
       }
 
-      return 'Not enough time';
+      return `${minutesStr}:${secondsStr}`;
     },
-    [enrageTimer, time, variant]
+    [enrageTimer, start, time, variant]
   );
 
   const formatEnrageTimeLeft = useCallback(() => {
@@ -81,12 +81,13 @@ const Timer: React.FC<ITimer> = ({
 
   useEffect(() => {
     // When the both button is clicked, forces timer to start
-    if (forceStart) {
+    if (forceStart && enrageTimer > time) {
       setTimeLeft(time);
       setStart(true);
+      setShowEnrageTimeLeft(true);
       if (setForceStart) setForceStart(false);
     }
-  }, [forceStart, setForceStart, time]);
+  }, [enrageTimer, forceStart, setForceStart, time]);
 
   useEffect(() => {
     // Effect to count the enrage timer down

@@ -92,6 +92,11 @@ button.copy {
   gap: 120px;
   opacity: 1;
 
+  button:not([disabled]):hover {
+    border-color: var(--black);
+    color: var(--black);
+  }
+
   p {
     animation-name: flash;
     animation-duration: 1s;

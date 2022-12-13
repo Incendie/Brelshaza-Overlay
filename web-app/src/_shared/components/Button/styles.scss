@@ -9,12 +9,8 @@ button {
   height: 72px;
   width: 240px;
 
-  &:not([disabled]) {
-    &:hover {
-      border-color: var(--black);
-      color: var(--black);
-      transition: 0.2s all ease-in-out;
-    }
+  &:hover {
+    transition: 0.2s all ease-in-out;
   }
 
   &:disabled {

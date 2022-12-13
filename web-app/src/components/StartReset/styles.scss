@@ -1,0 +1,23 @@
+.start-button {
+  background: var(--green);
+  color: var(--black);
+  border-color: var(--black);
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--white);
+    border-color: var(--white);
+  }
+}
+
+.reset-button {
+  background: var(--red);
+  color: var(--black);
+  border-color: var(--black);
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--white);
+    border-color: var(--white);
+  }
+}

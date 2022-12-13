@@ -160,13 +160,11 @@ const Timer: React.FC<ITimer> = ({
     if (fightStarted) {
       if (variant === TIMER_TYPE.ENRAGE) {
         await navigator.clipboard.writeText(
-          `${timeLeftVerbiage()} ${formatTimeLeft(timeLeft)}`
+          `${timeLeftVerbiage()} ${timeLeft} seconds`
         );
       } else if (start) {
         await navigator.clipboard.writeText(
-          `${timeLeftVerbiage()} ${formatTimeLeft(
-            timeLeft
-          )} ${enrageTimeLeftVerbiage()} ${formatEnrageTimeLeft()}`
+          `${timeLeftVerbiage()} ${timeLeft} seconds ${enrageTimeLeftVerbiage()} ${formatEnrageTimeLeft()}`
         );
       }
     }

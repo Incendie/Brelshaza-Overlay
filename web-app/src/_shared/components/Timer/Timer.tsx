@@ -1,4 +1,4 @@
-import React, { Dispatch, useEffect, useState } from 'react';
+import React, { Dispatch, useCallback, useEffect, useState } from 'react';
 import { TIMER_TYPE } from '../../constants/timer';
 import Button from '../Button';
 import image from '../../../assets/copy.png';
@@ -25,21 +25,28 @@ const Timer: React.FC<ITimer> = ({
   );
   const [showEnrageTimeLeft, setShowEnrageTimeLeft] = useState(false);
 
-  const formatTimeLeft = (timeRemaining: number) => {
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = Math.floor(timeRemaining % 60);
-    const minutesStr =
-      minutes < 10 ? `0${minutes.toString()}` : minutes.toString();
-    const secondsStr =
-      seconds < 10 ? `0${seconds.toString()}` : seconds.toString();
+  const formatTimeLeft = useCallback(
+    (timeRemaining: number) => {
+      if (enrageTimer >= time || variant === TIMER_TYPE.ENRAGE) {
+        const minutes = Math.max(Math.floor(timeRemaining / 60), 0);
+        const seconds = Math.max(Math.floor(timeRemaining % 60), 0);
+        const minutesStr =
+          minutes < 10 ? `0${minutes.toString()}` : minutes.toString();
+        const secondsStr =
+          seconds < 10 ? `0${seconds.toString()}` : seconds.toString();
 
-    return `${minutesStr}:${secondsStr}`;
-  };
+        return `${minutesStr}:${secondsStr}`;
+      }
 
-  const formatEnrageTimeLeft = () => {
+      return 'Not enough time';
+    },
+    [enrageTimer, time, variant]
+  );
+
+  const formatEnrageTimeLeft = useCallback(() => {
     if (enrageTimer && variant !== TIMER_TYPE.ENRAGE)
-      return formatTimeLeft(timeLeft + enrageTimer);
-  };
+      return formatTimeLeft(enrageTimer - time);
+  }, [enrageTimer, formatTimeLeft, time, variant]);
 
   const onTimerClick = (e: React.MouseEvent) => {
     // If the button next to the timer is clicked
@@ -85,6 +92,8 @@ const Timer: React.FC<ITimer> = ({
         setTimeLeft(prevTime => {
           if (prevTime <= 0) {
             clearInterval(timerInterval);
+            setShowEnrageTimeLeft(false);
+            setStart(false);
             return 0;
           }
 
@@ -140,6 +149,20 @@ const Timer: React.FC<ITimer> = ({
   };
 
   const disabled = !(fightStarted && (variant === TIMER_TYPE.ENRAGE || start));
+  const showWarning = timeLeft < 3;
+
+  const warningVerbiage = () => {
+    switch (variant) {
+      case TIMER_TYPE.ENRAGE:
+        return 'Enraging! Good luck';
+      case TIMER_TYPE.METEOR:
+        return `Blue meteor ${timeLeft > 0 ? 'is dropping' : 'dropped'}`;
+      case TIMER_TYPE.TILE:
+        return `Tile ${timeLeft > 0 ? 'is regenerating' : 'regenerated'}`;
+      default:
+        break;
+    }
+  };
 
   return (
     <div className={`${variant}-timer-container`}>
@@ -161,14 +184,18 @@ const Timer: React.FC<ITimer> = ({
           <img src={image} alt="Copy icon" />
         </button>
       </div>
-      {variant !== TIMER_TYPE.ENRAGE && (
-        <Button
-          className={`${variant}-button`}
-          label={formatName()}
-          onClick={onTimerClick}
-          disabled={!fightStarted}
-        />
-      )}
+
+      <div className="button-container">
+        {variant !== TIMER_TYPE.ENRAGE && (
+          <Button
+            className={`${variant}-button`}
+            label={formatName()}
+            onClick={onTimerClick}
+            disabled={!fightStarted || enrageTimer < time}
+          />
+        )}
+        {showWarning && <p className="warning">{warningVerbiage()}</p>}
+      </div>
     </div>
   );
 };

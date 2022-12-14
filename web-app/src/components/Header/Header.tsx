@@ -1,4 +1,5 @@
 import StartReset from '../StartReset';
+import mokoHi from '../../assets/mokoHiBrel.png';
 import './styles.scss';
 
 interface IHeader {
@@ -9,7 +10,9 @@ interface IHeader {
 const Header: React.FC<IHeader> = ({ fightStarted, onStartReset }) => {
   return (
     <header>
-      <h1>Brelshaza Timer</h1>
+      <h1>
+        Brelshaza Timer <img src={mokoHi} alt="Brelshaza Mokoko" />
+      </h1>
       <StartReset onClick={onStartReset} fightStarted={fightStarted} />
     </header>
   );

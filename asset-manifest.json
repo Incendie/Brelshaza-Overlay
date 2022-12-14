@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Brelshaza-Overlay/static/css/main.1ec7c457.css",
-    "main.js": "/Brelshaza-Overlay/static/js/main.7c199136.js",
+    "main.js": "/Brelshaza-Overlay/static/js/main.bc7e5d62.js",
     "static/js/787.8a7a9489.chunk.js": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js",
     "static/media/Abrel.png": "/Brelshaza-Overlay/static/media/Abrel.e5b1fb914cb2b2c3fee7.png",
     "static/media/mokoHiBrel.png": "/Brelshaza-Overlay/static/media/mokoHiBrel.6588d28cdfa40b392b27.png",
@@ -9,11 +9,11 @@
     "static/media/meteor-notification.m4a": "/Brelshaza-Overlay/static/media/meteor-notification.3bfa5d29e4f3c7524c68.m4a",
     "index.html": "/Brelshaza-Overlay/index.html",
     "main.1ec7c457.css.map": "/Brelshaza-Overlay/static/css/main.1ec7c457.css.map",
-    "main.7c199136.js.map": "/Brelshaza-Overlay/static/js/main.7c199136.js.map",
+    "main.bc7e5d62.js.map": "/Brelshaza-Overlay/static/js/main.bc7e5d62.js.map",
     "787.8a7a9489.chunk.js.map": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ec7c457.css",
-    "static/js/main.7c199136.js"
+    "static/js/main.bc7e5d62.js"
   ]
 }

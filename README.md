@@ -16,8 +16,9 @@
 # Brelshaza-Overlay
 Overlay a timer and buttons for Brelshaza Gate 6
 
-Can be accessed at: [https://incendie.github.io/Brelshaza-Overlay/](https://incendie.github.io/Brelshaza-Overlay/)
+Desktop and Mobile friendly for browsers
 
+Can be accessed at: [https://incendie.github.io/Brelshaza-Overlay/](https://incendie.github.io/Brelshaza-Overlay/)
 
 # Mechanics
 
@@ -40,17 +41,17 @@ Tiles regenerate 1 minute and 40 seconds (100 seconds) after it breaks.
 5. Click the `Both` (?) button INSTEAD of (3) or (4) if the blue meteor dropping and the tile breaking happens at the same time.
 6. Click the `Reset` button to reset the app to its initial state, Allowing you to click `Start` when you begin the fight again.
 
-## How it works
+## Functionality
 
 ### Timers
 All timers will show the countdown time, where at 0 the event will happen, as well as the equivalent time to the enrage timer. For example, if there is 23 seconds left until the blue meteor mechanic, then the timer will show `0:23` to indicate the 23 seconds left, as well as something like `14:37` to indicate that the meteor mechanic will start at 14:37 left on the enrage timer.
 
-### Clipboard functionality
-Clicking on the timers or the `Copy` button will copy a message indicating the countdown time, the equivalent enrage time, as well as the event to the clipboard. You can then paste this in chat.
+### Copy to Clipboard
+Clicking on the timers' text or the `Copy` button will copy a message indicating the countdown time, the equivalent enrage time, as well as the event to the clipboard. You can then paste this in chat.
 
 Example:
 ```
-Next blue meteor in 23 seconds or at Enrage Timer of 14:37
+Next Tile regenerates at 18:19
 ```
 
 ### Buttons

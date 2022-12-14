@@ -12,6 +12,7 @@ header {
   top: 0;
   width: 100vw;
   gap: 36px;
+  z-index: 1;
 
   @media screen and (max-width: 576px) {
     height: 96px;

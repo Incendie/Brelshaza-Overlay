@@ -2,7 +2,6 @@
 
 .App {
   background: $white;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: url('./assets/Abrel.png');
@@ -12,6 +11,5 @@
 
 .overlay {
   background-color: rgba(255, 255, 255, 0.8);
-  height: 100%;
   width: 100%;
 }

@@ -178,9 +178,7 @@ const Timer: React.FC<ITimer> = ({
           break;
         case TIMER_TYPE.TILE:
           await navigator.clipboard.writeText(
-            `${timeLeftVerbiage()} ${formatTimeLeft(
-              timeLeft
-            )} // Next Tile regenerates at ${enrageTimeLeft}`
+            `Next Tile regenerates at ${enrageTimeLeft}`
           );
           break;
         default:

@@ -2,8 +2,8 @@ import React, { Dispatch, useCallback, useEffect, useState } from 'react';
 import { TIMER_TYPE } from '../../constants/timer';
 import Button from '../Button';
 import image from '../../../assets/copy.png';
-import meteorAudio from '../../../assets/meteor-notification.m4a';
-import tileAudio from '../../../assets/tile-notification.m4a';
+import notifAudio from '../../../assets/meteor-notification.m4a';
+import successAudio from '../../../assets/tile-notification.m4a';
 import './styles.scss';
 
 interface ITimer {
@@ -209,24 +209,22 @@ const Timer: React.FC<ITimer> = ({
   };
 
   useEffect(() => {
-    const meteorNotif = new Audio(meteorAudio);
-    const tileNotif = new Audio(tileAudio);
+    const meteorNotif = new Audio(notifAudio);
+    const meteorDropped = new Audio(successAudio);
+    meteorNotif.load();
+    meteorDropped.load();
+    meteorNotif.muted = false;
+    meteorDropped.muted = false;
 
     const audioInterval = setInterval(() => {
-      if (showWarning) {
-        if (variant === TIMER_TYPE.METEOR) {
-          meteorNotif.load();
-          meteorNotif.muted = false;
+      if (variant === TIMER_TYPE.METEOR) {
+        if (showWarning && timeLeft > 0) {
           meteorNotif.play();
-        }
-        if (variant === TIMER_TYPE.TILE) {
-          tileNotif.load();
-          tileNotif.muted = false;
-          tileNotif.play();
+        } else if (!showWarning || timeLeft <= 0) {
+          clearInterval(audioInterval);
+          if (timeLeft === 0) meteorDropped.play();
         }
       }
-
-      if (!showWarning || timeLeft <= 0) clearInterval(audioInterval);
     }, 1000);
 
     return () => clearInterval(audioInterval);

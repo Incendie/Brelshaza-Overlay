@@ -11,7 +11,8 @@ const Header: React.FC<IHeader> = ({ fightStarted, onStartReset }) => {
   return (
     <header>
       <h1>
-        Brelshaza Timer <img src={mokoHi} alt="Brelshaza Mokoko" />
+        <span>Brelshaza Timer</span>
+        <img src={mokoHi} alt="Brelshaza Mokoko" />
       </h1>
       <StartReset onClick={onStartReset} fightStarted={fightStarted} />
     </header>

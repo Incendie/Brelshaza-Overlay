@@ -11,20 +11,39 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
+  gap: 36px;
 
   @media screen and (max-width: 576px) {
-    h1 {
-      font-size: 1.5rem;
+    height: 96px;
+    padding: 18px;
+    gap: 24px;
+  }
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $white;
+
+  span {
+    width: fit-content;
+
+    @media screen and (max-width: 576px) {
+      width: min-content;
     }
   }
 
   img {
     width: 108px;
   }
-}
 
-h1 {
-  display: flex;
-  align-items: center;
-  color: $white;
+  @media screen and (max-width: 576px) {
+    font-size: 1.5rem;
+    justify-content: flex-start;
+
+    img {
+      width: 64px;
+    }
+  }
 }

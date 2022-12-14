@@ -15,6 +15,7 @@
 }
 
 .timer-timeLeft-container {
+  height: 72px;
   cursor: pointer;
 
   &.disabled {
@@ -28,12 +29,16 @@
 }
 
 .enrage-timer-container {
-  height: 60px;
+  height: 102px;
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 24px;
+
+  .timer-timeLeft-container {
+    height: fit-content;
+  }
 
   @media screen and (max-width: 576px) {
+    height: 84px;
     font-size: 1.25rem;
     margin-bottom: 12px;
   }
@@ -54,7 +59,12 @@
 }
 
 .blue-meteor-timer-container {
-  margin-bottom: 36px;
+  height: 156px;
+
+  @media screen and (max-width: 576px) {
+    height: 210px;
+    margin-bottom: 6px;
+  }
 
   .button-container button {
     background: $blue;
@@ -76,6 +86,12 @@
 }
 
 .broken-tile-timer-container {
+  height: 156px;
+
+  @media screen and (max-width: 576px) {
+    height: 210px;
+  }
+
   .button-container button {
     background: $yellow;
 
@@ -115,6 +131,7 @@ button.copy {
   align-items: center;
   gap: 120px;
   opacity: 1;
+  margin: 12px 0;
 
   button:not([disabled]):hover {
     border-color: $black;

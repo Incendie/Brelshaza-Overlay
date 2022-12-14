@@ -1,4 +1,17 @@
+@import './variables';
+
 .App {
-  background: var(--white);
+  background: $white;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('./assets/brelHi.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 100%;
+  width: 100%;
 }

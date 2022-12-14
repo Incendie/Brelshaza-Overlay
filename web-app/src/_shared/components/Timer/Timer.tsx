@@ -54,9 +54,9 @@ const Timer: React.FC<ITimer> = ({
   const formatEnrageTimeLeft = useCallback(() => {
     // Format to mm:ss left on the enrage timer
     if (enrageTimer && variant !== TIMER_TYPE.ENRAGE)
-      return formatTimeLeft(enrageTimer - timeLeft);
+      return formatTimeLeft(enrageTimer - time);
     return '';
-  }, [enrageTimer, formatTimeLeft, timeLeft, variant]);
+  }, [enrageTimer, formatTimeLeft, time, variant]);
 
   const onTimerClick = (e: React.MouseEvent) => {
     // If the button next to the timer is clicked
@@ -119,9 +119,16 @@ const Timer: React.FC<ITimer> = ({
       if (start) {
         setTimeLeft(prevTime => {
           if (prevTime <= 0) {
-            clearInterval(timerInterval);
-            setShowEnrageTimeLeft(false);
-            setStart(false);
+            if (variant === TIMER_TYPE.TILE) {
+              clearInterval(timerInterval);
+              setShowEnrageTimeLeft(false);
+              setStart(false);
+            }
+            if (variant === TIMER_TYPE.METEOR) {
+              setEnrageTimeLeft(formatEnrageTimeLeft());
+              return time;
+            }
+
             return 0;
           }
 
@@ -133,7 +140,7 @@ const Timer: React.FC<ITimer> = ({
     if (!start) clearInterval(timerInterval);
 
     return () => clearInterval(timerInterval);
-  }, [start, timeLeft]);
+  }, [formatEnrageTimeLeft, start, time, timeLeft, variant]);
 
   const timeLeftVerbiage = () => {
     switch (variant) {
@@ -186,7 +193,7 @@ const Timer: React.FC<ITimer> = ({
   const disabled = !(fightStarted && (variant === TIMER_TYPE.ENRAGE || start));
 
   // Show the flashing warning at 3 seconds
-  const showWarning = timeLeft < 3;
+  const showWarning = timeLeft < 5;
 
   const warningVerbiage = () => {
     switch (variant) {

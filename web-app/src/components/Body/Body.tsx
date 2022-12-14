@@ -32,6 +32,7 @@ const Body: React.FC<IBody> = ({
           setEnrageTimer={setEnrageTimer}
           time={TIMER.ENRAGE}
           variant={TIMER_TYPE.ENRAGE}
+          key={TIMER_TYPE.ENRAGE}
         />
         <Timer
           enrageTimer={enrageTimer}
@@ -41,6 +42,7 @@ const Body: React.FC<IBody> = ({
           setForceStart={setForceStart}
           time={TIMER.METEOR}
           variant={TIMER_TYPE.METEOR}
+          key={TIMER_TYPE.METEOR}
         />
         <Timer
           enrageTimer={enrageTimer}
@@ -50,6 +52,7 @@ const Body: React.FC<IBody> = ({
           setForceStart={setForceStart}
           time={TIMER.TILE}
           variant={TIMER_TYPE.TILE}
+          key={TIMER_TYPE.TILE}
         />
         <p className="both-button-caption">
           Click this button if the meteor dropped and tile broke at the same

@@ -1,14 +1,26 @@
+@import '../../variables';
+
 header {
   height: 120px;
-  padding: 24px;
-  background: var(--grey);
+  padding: 24px 36px;
+  background: $grey;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 0 6px 6px var(--shadow);
+  align-items: center;
+  box-shadow: 0 0 6px 6px $shadow;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  @media screen and (max-width: 576px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 h1 {
   display: flex;
   align-items: center;
-  color: var(--white);
+  color: $white;
 }

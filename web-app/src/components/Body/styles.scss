@@ -1,12 +1,36 @@
+@import '../../variables';
+
 main {
-  width: 900px;
-  margin: 36px auto;
+  max-width: 900px;
+  max-height: 100vh;
+  margin: 120px auto 0;
+  padding: 0 12px;
+}
+
+.timers-box {
+  padding: 36px 0;
+
+  @media screen and (max-width: 576px) {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .both-button {
-  background: var(--grey);
+  background: $grey;
+
+  &:disabled {
+    background-color: lighten($grey, 30%);
+  }
 
   &-caption {
     margin: 36px 0 12px 0;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 24px;
+      text-align: center;
+    }
   }
 }

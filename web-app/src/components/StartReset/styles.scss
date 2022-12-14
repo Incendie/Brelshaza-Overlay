@@ -1,23 +1,25 @@
+@import '../../variables';
+
 .start-button {
-  background: var(--green);
-  color: var(--black);
-  border-color: var(--black);
+  background: $green;
+  color: $black;
+  border-color: $black;
   text-transform: uppercase;
 
   &:hover {
-    color: var(--white);
-    border-color: var(--white);
+    color: $white;
+    border-color: $white;
   }
 }
 
 .reset-button {
-  background: var(--red);
-  color: var(--black);
-  border-color: var(--black);
+  background: $red;
+  color: $black;
+  border-color: $black;
   text-transform: uppercase;
 
   &:hover {
-    color: var(--white);
-    border-color: var(--white);
+    color: $white;
+    border-color: $white;
   }
 }

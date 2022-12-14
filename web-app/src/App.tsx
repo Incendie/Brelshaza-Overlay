@@ -21,12 +21,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header onStartReset={onStartReset} fightStarted={fightStarted} />
-      <Body
-        enrageTimer={enrageTimer}
-        fightStarted={fightStarted}
-        setEnrageTimer={setEnrageTimer}
-      />
+      <div className="overlay">
+        <Header onStartReset={onStartReset} fightStarted={fightStarted} />
+        <Body
+          enrageTimer={enrageTimer}
+          fightStarted={fightStarted}
+          setEnrageTimer={setEnrageTimer}
+        />
+      </div>
     </div>
   );
 }

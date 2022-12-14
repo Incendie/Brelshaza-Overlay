@@ -22,7 +22,7 @@ Can be accessed at: [https://incendie.github.io/Brelshaza-Overlay/](https://ince
 # Mechanics
 
 ## Enrage Timer
-20 minute enrage timer (1200 minutes or 72000 secoonds)
+20 minute enrage timer (1200 secoonds)
 
 ## Blue Meteor
 Blue meteor drops every minute (60 seconds)

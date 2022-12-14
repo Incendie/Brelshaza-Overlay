@@ -262,7 +262,7 @@ const Timer: React.FC<ITimer> = ({
             disabled={!fightStarted || enrageTimer < time}
           />
         )}
-        {true && <p className="warning">{warningVerbiage()}</p>}
+        {showWarning && <p className="warning">{warningVerbiage()}</p>}
       </div>
     </div>
   );

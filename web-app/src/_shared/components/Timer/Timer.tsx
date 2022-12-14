@@ -2,6 +2,8 @@ import React, { Dispatch, useCallback, useEffect, useState } from 'react';
 import { TIMER_TYPE } from '../../constants/timer';
 import Button from '../Button';
 import image from '../../../assets/copy.png';
+import meteorAudio from '../../../assets/meteor-notification.m4a';
+import tileAudio from '../../../assets/tile-notification.m4a';
 import './styles.scss';
 
 interface ITimer {
@@ -207,22 +209,28 @@ const Timer: React.FC<ITimer> = ({
   };
 
   useEffect(() => {
-    const meteorNotif = new Audio('./static/media/meteor-notification.m4a');
-    const tileNotif = new Audio('./static/media/tile-notification.m4a');
-    meteorNotif.muted = false;
-    tileNotif.muted = false;
-    console.log(showWarning);
+    const meteorNotif = new Audio(meteorAudio);
+    const tileNotif = new Audio(tileAudio);
+
     const audioInterval = setInterval(() => {
       if (showWarning) {
-        if (variant === TIMER_TYPE.METEOR) meteorNotif.play();
-        if (variant === TIMER_TYPE.TILE) tileNotif.play();
+        if (variant === TIMER_TYPE.METEOR) {
+          meteorNotif.load();
+          meteorNotif.muted = false;
+          meteorNotif.play();
+        }
+        if (variant === TIMER_TYPE.TILE) {
+          tileNotif.load();
+          tileNotif.muted = false;
+          tileNotif.play();
+        }
       }
 
-      if (!showWarning) clearInterval(audioInterval);
-    });
+      if (!showWarning || timeLeft <= 0) clearInterval(audioInterval);
+    }, 1000);
 
     return () => clearInterval(audioInterval);
-  }, [showWarning, variant]);
+  }, [showWarning, timeLeft, variant]);
 
   return (
     <div className={`${variant}-timer-container`}>

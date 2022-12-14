@@ -56,10 +56,10 @@ Next blue meteor in 23 seconds or at Enrage Timer of 14:37
 Once you click `Start`, the enrage timer will start counting down and initializes the meteor and tile timers to 0. This button will then change to a `Reset` button. Click it again to end the fight and reset the app.
 
 #### Meteor
-If you click the blue `Meteor` button, it will start/restart the 1 minute timer for the blue meteors. At 5 seconds before the next meteor, a message will show up alerting you about the incoming meteor. Click it again to restart the timer to countdown from 1 minute again.
+If you click the blue `Meteor` button, it will start/restart the 1 minute timer for the blue meteors. At 5 seconds before the next meteor, a message and an audio cue will inform you about the incoming meteor. Click it again to restart the timer to countdown from 1 minute again.
 
 #### Broken Tile
-If you click the golden `Broken Tile` button, it will start a 1:40 timer to tell you when the tile will regenerate. At 5 seconds before the tile regenerates, a message will show up informing you that the tile is about to come back. Click it again to restart the timer to countdown from 1 minute 40 seconds again.
+If you click the golden `Broken Tile` button, it will start a 1:40 timer to tell you when the tile will regenerate. At 5 seconds before the tile regenerates, a message and an audio cue will inform you that the tile is about to come back. Click it again to restart the timer to countdown from 1 minute 40 seconds again.
 
 #### Both
 If you click the  `Both` button, it will start both the meteor and tile timers simultaneously. Click it again to restart both the timers to start counting down again. If there isn't enough time left for one of the timers, it will not start.

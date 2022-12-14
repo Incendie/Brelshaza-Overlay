@@ -206,6 +206,24 @@ const Timer: React.FC<ITimer> = ({
     }
   };
 
+  useEffect(() => {
+    const meteorNotif = new Audio('./static/media/meteor-notification.m4a');
+    const tileNotif = new Audio('./static/media/tile-notification.m4a');
+    meteorNotif.muted = false;
+    tileNotif.muted = false;
+    console.log(showWarning);
+    const audioInterval = setInterval(() => {
+      if (showWarning) {
+        if (variant === TIMER_TYPE.METEOR) meteorNotif.play();
+        if (variant === TIMER_TYPE.TILE) tileNotif.play();
+      }
+
+      if (!showWarning) clearInterval(audioInterval);
+    });
+
+    return () => clearInterval(audioInterval);
+  }, [showWarning, variant]);
+
   return (
     <div className={`${variant}-timer-container`}>
       <div

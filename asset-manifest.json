@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Brelshaza-Overlay/static/css/main.1ec7c457.css",
+    "main.css": "/Brelshaza-Overlay/static/css/main.7e575fd1.css",
     "main.js": "/Brelshaza-Overlay/static/js/main.bc7e5d62.js",
     "static/js/787.8a7a9489.chunk.js": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js",
     "static/media/Abrel.png": "/Brelshaza-Overlay/static/media/Abrel.e5b1fb914cb2b2c3fee7.png",
@@ -8,12 +8,12 @@
     "static/media/tile-notification.m4a": "/Brelshaza-Overlay/static/media/tile-notification.6ef8fac68b59a2c3b80f.m4a",
     "static/media/meteor-notification.m4a": "/Brelshaza-Overlay/static/media/meteor-notification.3bfa5d29e4f3c7524c68.m4a",
     "index.html": "/Brelshaza-Overlay/index.html",
-    "main.1ec7c457.css.map": "/Brelshaza-Overlay/static/css/main.1ec7c457.css.map",
+    "main.7e575fd1.css.map": "/Brelshaza-Overlay/static/css/main.7e575fd1.css.map",
     "main.bc7e5d62.js.map": "/Brelshaza-Overlay/static/js/main.bc7e5d62.js.map",
     "787.8a7a9489.chunk.js.map": "/Brelshaza-Overlay/static/js/787.8a7a9489.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ec7c457.css",
+    "static/css/main.7e575fd1.css",
     "static/js/main.bc7e5d62.js"
   ]
 }

@@ -1,4 +1,5 @@
-- [Brelshaza-Overlay](#brelshaza-overlay)
+
+- [Introduction](#introduction)
 - [Mechanics](#mechanics)
   - [Enrage Timer](#enrage-timer)
   - [Blue Meteor](#blue-meteor)
@@ -13,14 +14,14 @@
       - [Meteor](#meteor)
       - [Broken Tile](#broken-tile)
       - [Both](#both)
-# Brelshaza-Overlay
-Overlay a timer and buttons for Brelshaza Gate 6
+# Introduction
+This is just to take the load off trying to calculate 100 seconds ahead for Brelshaza Gate 6. Still requires some alt+tab interaction with it so it's not completely free.
+
+I don't have a Patreon or anything, but if you want to say thanks, feel free to subscribe to my friend, [Aiyulol](https://www.twitch.tv/aiyulol) at https://www.twitch.tv/aiyulol.
 
 Can be accessed at: [https://incendie.github.io/Brelshaza-Overlay/](https://incendie.github.io/Brelshaza-Overlay/)
 
-
 # Mechanics
-
 ## Enrage Timer
 20 minute enrage timer (1200 minutes or 72000 secoonds)
 
@@ -40,6 +41,7 @@ Tiles regenerate 1 minute and 40 seconds (100 seconds) after it breaks.
 5. Click the `Both` (?) button INSTEAD of (3) or (4) if the blue meteor dropping and the tile breaking happens at the same time.
 6. Click the `Reset` button to reset the app to its initial state, Allowing you to click `Start` when you begin the fight again.
 
+*Note: You will probably have to click the Blue Meteor button again after the first Shandi/Chanmi mechanic because the blue meteor timer gets out of sync due to the mechanics.
 ## How it works
 
 ### Timers

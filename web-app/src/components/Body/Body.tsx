@@ -65,6 +65,13 @@ const Body: React.FC<IBody> = ({
           disabled={!fightStarted}
         />
       </div>
+      <p className="message">
+        If you want to say thanks, feel free to subscribe to my friend{' '}
+        <a href="https://www.twitch.tv/aiyulol">Aiyulol</a> at{' '}
+        <a href="https://www.twitch.tv/aiyulol">
+          https://www.twitch.tv/aiyulol
+        </a>
+      </p>
     </main>
   );
 };

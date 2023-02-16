@@ -7,8 +7,9 @@
 - [How this app works](#how-this-app-works)
   - [Instructions](#instructions)
   - [How it works](#how-it-works)
+  - [Functionality](#functionality)
     - [Timers](#timers)
-    - [Clipboard functionality](#clipboard-functionality)
+    - [Copy to Clipboard](#copy-to-clipboard)
     - [Buttons](#buttons)
       - [Start/Reset](#startreset)
       - [Meteor](#meteor)
@@ -19,11 +20,13 @@ This is just to take the load off trying to calculate 100 seconds ahead for Brel
 
 I don't have a Patreon or anything, but if you want to say thanks, feel free to subscribe to my friend, [Aiyulol](https://www.twitch.tv/aiyulol) at https://www.twitch.tv/aiyulol.
 
+It is Desktop and Mobile friendly for browsers.
+
 Can be accessed at: [https://incendie.github.io/Brelshaza-Overlay/](https://incendie.github.io/Brelshaza-Overlay/)
 
 # Mechanics
 ## Enrage Timer
-20 minute enrage timer (1200 minutes or 72000 secoonds)
+20 minute enrage timer (1200 secoonds)
 
 ## Blue Meteor
 Blue meteor drops every minute (60 seconds)
@@ -43,16 +46,17 @@ Tiles regenerate 1 minute and 40 seconds (100 seconds) after it breaks.
 
 *Note: You will probably have to click the Blue Meteor button again after the first Shandi/Chanmi mechanic because the blue meteor timer gets out of sync due to the mechanics.
 ## How it works
+## Functionality
 
 ### Timers
 All timers will show the countdown time, where at 0 the event will happen, as well as the equivalent time to the enrage timer. For example, if there is 23 seconds left until the blue meteor mechanic, then the timer will show `0:23` to indicate the 23 seconds left, as well as something like `14:37` to indicate that the meteor mechanic will start at 14:37 left on the enrage timer.
 
-### Clipboard functionality
-Clicking on the timers or the `Copy` button will copy a message indicating the countdown time, the equivalent enrage time, as well as the event to the clipboard. You can then paste this in chat.
+### Copy to Clipboard
+Clicking on the timers' text or the `Copy` button will copy a message indicating the countdown time, the equivalent enrage time, as well as the event to the clipboard. You can then paste this in chat.
 
 Example:
 ```
-Next blue meteor in 23 seconds or at Enrage Timer of 14:37
+Next Tile regenerates at 18:19
 ```
 
 ### Buttons
